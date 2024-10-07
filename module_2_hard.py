@@ -10,9 +10,9 @@ def generate_password(n):
 
     return password
 
-n = int(input("Введите число от 3 до 20: "))
+n = int(input())
 if 3 <= n <= 20:
     result = generate_password(n)
-    print("Нужный пароль:", result)
+    print(result)
 else:
-    print("Число должно быть в диапазоне от 3 до 20.")
+    print("error")
