@@ -4,7 +4,6 @@ import asyncio
 
 API_TOKEN = ""
 
-# Инициализация бота и диспетчера
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
 
@@ -12,7 +11,6 @@ dp = Dispatcher(bot)
 async def start(message: types.Message):
     await message.answer("Привет! Я бот помогающий твоему здоровью.")
 
-# Обработчик всех остальных сообщений
 @dp.message_handler()
 async def all_messages(message: types.Message):
     await message.answer("Введите команду /start, чтобы начать общение.")
