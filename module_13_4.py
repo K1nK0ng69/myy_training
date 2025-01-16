@@ -19,6 +19,11 @@ class UserState(StatesGroup):
     weight = State()
 
 
+@dp.message_handler(commands="start")
+async def send_welcome(message: types.Message):
+    await message.answer("Привет! Я бот, помогающий твоему здоровью. Для расчета калорий напиши 'Calories'.")
+
+
 @dp.message_handler(Text(equals='Calories', ignore_case=True))
 async def set_age(message: types.Message):
     await message.answer("Введите свой возраст:")
@@ -56,6 +61,11 @@ async def send_calories(message: types.Message, state: FSMContext):
         await message.answer("Пожалуйста, вводите только числа для возраста, роста и веса.")
 
     await state.finish()
+
+
+@dp.message_handler()
+async def handle_unknown(message: types.Message):
+    await message.answer("Введите команду /start, чтобы начать общение.")
 
 
 if __name__ == "__main__":
