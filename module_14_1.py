@@ -26,7 +26,7 @@ for i in range(0, len(ids), 2):
 
 cursor.execute("SELECT id FROM Users")
 ids = [row[0] for row in cursor.fetchall()]
-for i in range(2, len(ids), 3):
+for i in range(0, len(ids), 3):
     cursor.execute("DELETE FROM Users WHERE id = ?", (ids[i],))
 
 cursor.execute("SELECT username, email, age, balance FROM Users WHERE age != 60")
