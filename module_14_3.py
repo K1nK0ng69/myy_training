@@ -99,7 +99,7 @@ async def get_buying_list(message: types.Message):
     await message.answer("Выберите продукт для покупки:", reply_markup=buy_keyboard)
 
 
-# Обработчик выбора продукта
+
 @dp.callback_query_handler(lambda c: c.data == 'product_buying')
 async def send_confirm_message(call: types.CallbackQuery):
     await call.message.answer("Вы успешно приобрели продукт!")
